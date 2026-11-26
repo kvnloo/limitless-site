@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Limitless: the pill is a system</title>
+<meta name="description" content="Limitless is an open-source Hermes Agent plugin: one small change at a time, a locked prediction, an honest outcome. The plan: an open network that democratizes health span.">
+<meta property="og:title" content="Limitless: the pill is a system">
+<meta property="og:description" content="An open-source loop around your health and focus, built on Hermes Agent. Watch where it's going.">
+<meta property="og:image" content="media/poster.jpg">
+<meta name="theme-color" content="#0c0c0a">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="top">
+  <a class="brand" href="#top">Limitless<span class="dot" aria-hidden="true"></span></a>
+  <nav aria-label="Sections">
+    <a href="#loop">The loop</a>
+    <a href="#adapts">How it adapts</a>
+    <a href="#network">Network</a>
+    <a href="#roadmap">Roadmap</a>
+    <a class="gh" href="https://github.com/kvnloo/limitless">GitHub</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="mono kicker"><span class="pip"></span><span>A Hermes Agent plugin · open source · MIT</span></p>
+    <h1>The real limitless pill isn't a pill.<br><em>It's a system.</em></h1>
+    <p class="lede">Bryan Johnson's Blueprint measures everything with a team of doctors. Limitless asks what an app and an algorithm can do for anyone: one small change at a time, a prediction locked before you start, and an honest read of what happened.</p>
+    <figure class="film" id="film">
+      <span class="br tl"></span><span class="br tr"></span><span class="br bl"></span><span class="br br2"></span>
+      <video id="v" controls playsinline preload="metadata" poster="media/poster.jpg">
+        <source src="media/limitless-vision-v1.mp4" type="video/mp4">
+      </video>
+      <figcaption class="mono">Vision film · 1 min 55 s · narrated, captions burned in. Every scene is labelled built, published evidence or vision.</figcaption>
+    </figure>
+    <div class="ctas">
+      <a class="btn primary" href="#install">Install the plugin</a>
+      <a class="btn" href="https://github.com/kvnloo/limitless">Read the code</a>
+    </div>
+    <ul class="status" aria-label="Build status">
+      <li><span class="chip built">Built today</span>the loop, one-tap habit weeks, locked predictions, decision windows, a send gate</li>
+      <li><span class="chip next">Next</span>wearable sleep on most nights, the habit loop running for four weeks</li>
+      <li><span class="chip vision">Vision</span>difficulty tuned to your record, population priors, an open health network</li>
+    </ul>
+  </section>
+
+  <section id="loop" class="band">
+    <header class="sec">
+      <p class="mono eyebrow">01 · The loop</p>
+      <h2>Observe, change one thing, <em>lock a prediction</em>, read the outcome, revise.</h2>
+      <p>It never prescribes. It suggests one low-burden change, writes down what you expect before you start, and keeps the result whether it supports you or not.</p>
+    </header>
+    <div class="loopwrap">
+      <svg class="loop" id="loopsvg" viewBox="0 0 520 520" role="img" aria-label="The five-step loop">
+        <circle cx="260" cy="260" r="200" class="ring"/>
+        <circle cx="260" cy="260" r="200" class="lit" id="looplit"/>
+        <circle r="8" class="comet" id="comet" cx="260" cy="60"/>
+        <text x="260" y="252" class="mid">the pill</text>
+        <text x="260" y="292" class="mid gold">is a system</text>
+      </svg>
+      <ol class="steps" id="steps">
+        <li data-k="0" class="on"><button><b>Observe</b><span>Sleep, wake, focus blocks and feeds from your own devices, each value labelled measured, imported, proxy or self-reported, with its age.</span><code>limitless_state · limitless_window</code></button></li>
+        <li data-k="1"><button><b>One small change</b><span>One habit a week, a start that takes two minutes, offered foundation first and easiest first.</span><code>limitless_habit_next · habit_start</code></button></li>
+        <li data-k="2"><button><b>Lock a prediction</b><span>Before the week starts you say what you expect and what would prove you wrong. It's written append-only.</span><code>prediction.py · stop rule</code></button></li>
+        <li data-k="3"><button><b>Read the outcome</b><span>Day seven gives one number and a receipt: supports, contradicts or inconclusive. Fewer than three logged days is inconclusive, never a fail.</span><code>week_review · limitless_loop</code></button></li>
+        <li data-k="4"><button><b>Revise from evidence</b><span>Keep or drop is your tap. Results climb an evidence ladder from measured to replicated; a contradicted week never climbs.</span><code>evidence ladder · limitless_experiment</code></button></li>
+      </ol>
+    </div>
+    <div class="layers" aria-label="Four layers">
+      <div class="layer f"><b>Foundation</b><span>sleep · energy · nutrition · recovery</span></div>
+      <div class="layer"><b>Learning</b><span>spaced review · memory palace</span></div>
+      <div class="layer"><b>Flow</b><span>deep work · focus blocks</span></div>
+      <div class="layer"><b>Enhancement</b><span>later, carefully</span></div>
+      <p class="note">Foundation sets the ceiling for the rest. In one cohort of 60,977 adults, <a href="https://doi.org/10.1093/sleep/zsad253">regular sleep predicted mortality risk better than sleep length</a> (an association, not proof of cause).</p>
+    </div>
+  </section>
+
+  <section id="adapts" class="band">
+    <header class="sec">
+      <p class="mono eyebrow">02 · How it will adapt <span class="chip vision">Vision</span></p>
+      <h2>You are not the average. <em>Your record sets the next step.</em></h2>
+      <p>The plan: start from what large studies show, then move toward what works for you. Misses make the next step smaller, streaks make it bigger, and a skipped day is unlogged, never a failure. Try the rule:</p>
+    </header>
+    <div class="sim" id="sim">
+      <div class="simrow" id="days" aria-live="polite"></div>
+      <div class="simbars" id="bars"></div>
+      <div class="simctl">
+        <button data-a="done" class="btn small primary">Done</button>
+        <button data-a="no" class="btn small">No</button>
+        <button data-a="skip" class="btn small">Skip</button>
+        <button data-a="reset" class="btn small ghost">Reset</button>
+      </div>
+      <p class="mono simread" id="simread">Next step: two minutes. Tap a day.</p>
+      <p class="mono fine">Illustrative rule for the roadmap: two misses in a row shrink the step, three done in a row grow it. Not built yet.</p>
+    </div>
+    <div class="cards">
+      <article class="card"><span class="chip ev">Evidence</span><h3>No magic number</h3><p>Across the studies in one systematic review, individuals took <b>4 to 335 days</b> to form a health habit; medians were about two months.</p><a class="src" href="https://doi.org/10.3390/healthcare12232488">Singh et al., Healthcare 2024</a></article>
+      <article class="card"><span class="chip ev">Evidence</span><h3>Habits differ by kind and by person</h3><p>Machine learning on 12 million gym check-ins and 40 million handwashes: gym habits took months, handwashing weeks, and people differed in what cues drove them.</p><a class="src" href="https://doi.org/10.1073/pnas.2216115120">Buyalskaya et al., PNAS 2023</a></article>
+      <article class="card"><span class="chip ev">Evidence</span><h3>Test, don't guess</h3><p>In a 61,293-person megastudy of 54 programs, expert forecasters could not predict the winners. The best one rewarded coming back after a miss.</p><a class="src" href="https://doi.org/10.1038/s41586-021-04128-4">Milkman et al., Nature 2021</a></article>
+      <article class="card"><span class="chip ev">Evidence · analogy</span><h3>A sweet spot of difficulty</h3><p>Learning was fastest near 85% success for a broad class of learners. Limitless would use it as a target band, an analogy rather than a habit study.</p><a class="src" href="https://doi.org/10.1038/s41467-019-12552-4">Wilson et al., Nat. Commun. 2019</a></article>
+      <article class="card"><span class="chip ev">Evidence</span><h3>Nudges wear off</h3><p>In HeartSteps, a suggestion's effect on steps faded over weeks; a per-person bandit re-learns when and whether to nudge. So the policy has to adapt.</p><a class="src" href="https://arxiv.org/abs/1909.03539">Liao et al., HeartSteps V2</a></article>
+      <article class="card"><span class="chip ev">Evidence</span><h3>The group helps the individual</h3><p>Aggregated N-of-1 trials with Bayesian hierarchical models: each person borrows strength from everyone, and their own effect stays their own.</p><a class="src" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10817775/">Bayesian models for N-of-1 trials</a></article>
+    </div>
+  </section>
+
+  <section class="band moment">
+    <div class="phone"><img src="media/ui-card-state.png" alt="The plugin's state card: window peak, post-wake peak open, sleep short (proxy), habit this week, not recording: scale, asks waiting, focused mode" loading="lazy" width="390" height="844"></div>
+    <div>
+      <p class="mono eyebrow">03 · Hermes does the small part <span class="chip built">Built today</span></p>
+      <h2>One small nudge, at the right moment. <em>Never on a clock.</em></h2>
+      <ul class="ticks">
+        <li>Cues are events: after you wake, after a focus block, at wind-down.</li>
+        <li>Every ask is one tap: <span class="mono">Reply: Done / No / Skip</span>.</li>
+        <li>A daily push cap, a hold while you sleep, decisions only in your peak window.</li>
+        <li>Unknown is never zero, and the model sees labels, not raw health numbers.</li>
+      </ul>
+      <p class="fine mono">The card is real plugin output (limitless/ui_card.py) on the repo's synthetic example lines.</p>
+    </div>
+  </section>
+
+  <section id="network" class="band">
+    <header class="sec">
+      <p class="mono eyebrow">04 · The network <span class="chip mixed">Part built · part vision</span></p>
+      <h2>Separate open apps, <em>working as one loop.</em></h2>
+      <p>Your wearable, your focus, your learning and your voice, each its own open-source project, read by the plugin on your own machines. "Adapter built" means the plugin's reader for it exists in the code today.</p>
+    </header>
+    <div class="net" id="net">
+      <a class="node hub" href="https://github.com/kvnloo/limitless"><b>limitless</b><span>the loop · Hermes plugin</span><i class="chip built">built</i></a>
+      <a class="node" href="https://github.com/kvnloo/noop"><b>noop</b><span>wearable app · WHOOP, Oura, offline</span><i class="chip built">adapter built</i></a>
+      <a class="node" href="https://github.com/kvnloo/open-wearables"><b>open-wearables</b><span>self-hosted wearable hub</span><i class="chip next">next</i></a>
+      <a class="node" href="https://github.com/kvnloo/glide"><b>glide</b><span>focus blocks, wind-down</span><i class="chip built">adapter built</i></a>
+      <a class="node" href="https://github.com/kvnloo/activitywatch"><b>activitywatch</b><span>app time, feed leaks</span><i class="chip built">adapter built</i></a>
+      <a class="node" href="https://github.com/kvnloo/anki"><b>anki</b><span>spaced review in a trough</span><i class="chip built">adapter built</i></a>
+      <a class="node" href="https://github.com/kvnloo/kmind-palace"><b>kmind-palace</b><span>memory palace walks</span><i class="chip built">adapter built</i></a>
+      <a class="node" href="https://github.com/kvnloo/z0live"><b>z0live</b><span>talk to it: the voice brief</span><i class="chip built">adapter built</i></a>
+      <a class="node" href="https://github.com/kvnloo/hermes-agent"><b>hermes-agent</b><span>the agent the plugin runs in</span><i class="chip built">host</i></a>
+      <a class="node" href="https://github.com/kvnloo/open-healthspan"><b>open-healthspan</b><span>opt-in sharing, a health span board</span><i class="chip vision">vision · v0 demo</i></a>
+    </div>
+  </section>
+
+  <section class="band privacy">
+    <div>
+      <p class="mono eyebrow">05 · Private by design <span class="chip built">Built today</span></p>
+      <h2>Code public. <em>Data stays home.</em></h2>
+    </div>
+    <ul class="tiers">
+      <li><b>T0 · raw</b>Heart rate, sleep stages, body measures, messages: read only by deterministic code, never put in a prompt.</li>
+      <li><b>T1 · labels</b>"sleep short (proxy)", "readiness unknown": made by code or a local model.</li>
+      <li><b>T2 · the model</b>Sees only T1 labels. Raw numbers need a per-request opt-in.</li>
+      <li><b>Hygiene</b>A test fails the build if a private path, token or data file is ever committed.</li>
+    </ul>
+  </section>
+
+  <section id="roadmap" class="band">
+    <header class="sec">
+      <p class="mono eyebrow">06 · Roadmap</p>
+      <h2>From one person's loop <em>to health span for everyone.</em></h2>
+    </header>
+    <ol class="road">
+      <li class="done"><span class="chip built">v0 · now</span><b>Revive and deliver</b><p>Plugin tools and state card, the send gate, event jobs, one-tap habit weeks, locked predictions.</p></li>
+      <li><span class="chip next">v1</span><b>Close the loop</b><p>Four weekly cycles with outcome receipts; wearable sleep, rides and body trend as inputs; decision windows on every ask.</p></li>
+      <li><span class="chip vision">v2</span><b>Adapt</b><p>Difficulty from your own record, a sweet-spot band, nudges that re-learn when they wear off.</p></li>
+      <li><span class="chip vision">Network</span><b>Learn together, privately</b><p>Population priors from published studies, then opt-in sharing of what worked, never raw data.</p></li>
+    </ol>
+  </section>
+
+  <section id="install" class="band">
+    <header class="sec">
+      <p class="mono eyebrow">07 · Install</p>
+      <h2>Two steps <em>into Hermes Agent.</em></h2>
+    </header>
+    <div class="code">
+      <button class="copy mono" data-copy="git clone https://github.com/kvnloo/limitless ~/.hermes/plugins/limitless">Copy</button>
+<pre><code><span class="c"># 1. put the plugin where Hermes looks for it</span>
+git clone https://github.com/kvnloo/limitless ~/.hermes/plugins/limitless
+
+<span class="c"># 2. add it to plugins.enabled in ~/.hermes/config.yaml</span>
+plugins:
+  enabled:
+    - limitless</code></pre>
+    </div>
+    <p class="fine mono">Every tool works with no data: it says "unknown" and why. Point it at your own sources in <a href="https://github.com/kvnloo/limitless#readme">the README</a>.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p><b>Not medical advice.</b> Limitless never gives drug or supplement advice, makes no clinical claims and never scores a person.</p>
+  <p class="mono">Film music: “Beyond Jupiter (Piano Instrumental 2014)” by Ivan Chew, ccMixter, CC BY 3.0 · Voice: Gradium Phonon, Apache-2.0 · Made with fframes · Fonts: Instrument Serif, Instrument Sans, IBM Plex Mono (OFL)</p>
+  <p class="mono">Blueprint is Bryan Johnson's published protocol; Limitless is independent and unaffiliated.</p>
+</footer>
+<div class="toast mono" id="toast" role="status"></div>
+<script src="site.js"></script>
+</body>
+</html>
