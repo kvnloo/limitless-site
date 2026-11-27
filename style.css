@@ -165,16 +165,33 @@ main { max-width: 1180px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 48px); }
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity 420ms var(--ease), transform 420ms var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
 
+.ul9 { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; counter-reset: u; }
+.ul9 li { counter-increment: u; position: relative; padding: 22px 22px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); }
+.ul9 li::after { content: counter(u, decimal-leading-zero); position: absolute; top: 22px; right: 22px; font: 12px var(--mono); color: var(--faint); }
+.ul9 b { display: block; font: 26px/1.15 var(--serif); font-weight: 400; margin: 14px 0 6px; }
+.ul9 p { margin: 0; color: #cfcac0; font-size: 15px; }
+
+.gloss { margin: 0 0 64px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+.gloss div { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.gloss dt { font: 21px/1.2 var(--serif); color: var(--ink); }
+.gloss dd { margin: 6px 0 0; color: #cfcac0; font-size: 15px; }
+.srcs { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); }
+.srcs h3 { margin: 0 0 14px; }
+.refs { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.refs li { padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.refs a { font-family: var(--mono); font-size: 14px; overflow-wrap: anywhere; }
+.refs span { display: block; color: var(--dim); font-size: 14px; margin-top: 2px; }
+
 @media (max-width: 900px) {
   .loopwrap, .moment, .privacy { grid-template-columns: 1fr; }
   .loop { max-width: 360px; margin: 0 auto; }
-  .cards, .net { grid-template-columns: 1fr 1fr; }
+  .cards, .net, .ul9 { grid-template-columns: 1fr 1fr; }
   .road, .layers { grid-template-columns: 1fr 1fr; }
   .moment .phone { max-width: 300px; }
 }
 @media (max-width: 600px) {
   .top nav a:not(.gh) { display: none; }
-  .cards, .net, .road { grid-template-columns: 1fr; }
+  .cards, .net, .road, .ul9, .gloss, .srcs { grid-template-columns: 1fr; }
   .status li { flex-direction: column; gap: 6px; }
   .film { padding: 8px; border-radius: 16px; }
 }
