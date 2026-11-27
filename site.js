@@ -75,6 +75,23 @@
     toast.classList.add('on'); setTimeout(() => toast.classList.remove('on'), 1600);
   }));
 
+  // page counter: one POST per browser session, otherwise a read; stores a single total server-side
+  (async () => {
+    const el = $('#views'), n = $('#viewsN');
+    if (!el || !n || !('fetch' in window)) return;
+    let seen = false;
+    try { seen = sessionStorage.getItem('limitless-counted') === '1'; } catch {}
+    try {
+      const r = await fetch('/api/views', { method: seen ? 'GET' : 'POST' });
+      if (!r.ok) return;
+      const { views } = await r.json();
+      if (!Number.isFinite(views)) return;
+      if (!seen) { try { sessionStorage.setItem('limitless-counted', '1'); } catch {} }
+      n.textContent = views.toLocaleString('en-US');
+      el.hidden = false;
+    } catch {}
+  })();
+
   // reveal sections as they enter
   if (!reduce && 'IntersectionObserver' in window) {
     const els = $$('.sec, .loopwrap, .layers, .sim, .card, .moment > *, .node, .tiers li, .road li, .code');

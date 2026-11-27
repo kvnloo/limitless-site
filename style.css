@@ -159,6 +159,8 @@ main { max-width: 1180px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 48px); }
 .foot { max-width: 1180px; margin: 0 auto; padding: 48px clamp(18px, 4vw, 48px) 80px; border-top: 1px solid var(--line); color: var(--dim); font-size: 14px; }
 .foot b { color: var(--ink); font-weight: 400; }
 .foot .mono { font-size: 12px; }
+.foot .views { color: var(--gold2); }
+.foot .views .dim { color: var(--dim); }
 .toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); opacity: 0; padding: 12px 20px; border-radius: 999px; background: var(--panel); border: 1px solid var(--gold); color: var(--gold2); font-size: 13px; transition: opacity 200ms, transform 260ms var(--ease); pointer-events: none; }
 .toast.on { opacity: 1; transform: translate(-50%, 0); }
 

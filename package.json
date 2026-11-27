@@ -1,0 +1,9 @@
+{
+  "name": "limitless-launch-page",
+  "private": true,
+  "type": "module",
+  "description": "Static launch page plus one serverless page counter (api/views.js).",
+  "dependencies": {
+    "@vercel/blob": "2.9.0"
+  }
+}
