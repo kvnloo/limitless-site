@@ -7,7 +7,7 @@
 import { get, put, BlobNotFoundError, BlobPreconditionFailedError } from "@vercel/blob";
 
 // previews count into their own file, so testing never touches the real total
-const PATH = process.env.VERCEL_ENV === "production" ? "counter/views.json" : "counter/views-preview.json";
+const PATH = process.env.VERCEL_ENV === "production" ? "counter/views-v1.json" : "counter/views-preview.json";
 const ORIGINS = new Set(["https://limitless-hermes.vercel.app", "https://kvnloo.github.io"]);
 
 async function read() {
